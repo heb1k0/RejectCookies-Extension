@@ -22,4 +22,4 @@ setTimeout(() => {
             console.log("No hay modal de cookies");
         }
     }
-}, 1000);
+}, 500);
