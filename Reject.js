@@ -1,8 +1,8 @@
 setTimeout(() => {
     console.log('Rejecting Cookies Action');
-    let URLactual = window.location.href;
+    let CookieExtension_URL = window.location.href;
 
-    if (URLactual.includes('elmundo.es') || URLactual.includes('elmundo.com')) {
+    if (CookieExtension_URL.includes('elmundo.es') || CookieExtension_URL.includes('elmundo.com')) {
         const ModalCookies = document.querySelector('.popup-disagreed-cookies');
         if (ModalCookies) {
             const body = document.querySelector('body');
@@ -11,7 +11,7 @@ setTimeout(() => {
             console.log('Modal Cookies');
         }
     }
-    if (URLactual.includes('elperiodico.com') || URLactual.includes('elperiodico.es')) {
+    if (CookieExtension_URL.includes('elperiodico.com') || CookieExtension_URL.includes('elperiodico.es')) {
         const ModalCookies = document.querySelector("#didomi-host");
         if (ModalCookies) {
             const body = document.querySelector('body');
