@@ -1,25 +1,32 @@
 setTimeout(() => {
     console.log('Rejecting Cookies Action');
-    let CookieExtension_URL = window.location.href;
+    const cookieExtensionURL = window.location.href;
 
-    if (CookieExtension_URL.includes('elmundo.es') || CookieExtension_URL.includes('elmundo.com')) {
-        const ModalCookies = document.querySelector('.popup-disagreed-cookies');
-        if (ModalCookies) {
-            const body = document.querySelector('body');
-            body.classList.remove('ue-modal-open');
-            ModalCookies.style.display = 'none';
-            console.log('Modal Cookies');
-        }
-    }
-    if (CookieExtension_URL.includes('elperiodico.com') || CookieExtension_URL.includes('elperiodico.es')) {
-        const ModalCookies = document.querySelector("#didomi-host");
-        if (ModalCookies) {
+    // Función para ocultar el modal de cookies
+    const hideCookieModal = (selector) => {
+        const modalCookies = document.querySelector(selector);
+        if (modalCookies) {
             const body = document.querySelector('body');
             body.classList.remove(...body.classList);
-            ModalCookies.style.display = 'none';
+            modalCookies.style.display = 'none';
             console.log('Modal Cookies');
         } else {
-            console.log("No hay modal de cookies");
+            console.log('No hay modal de cookies');
         }
+    };
+
+    // Verificar para elmundo.es o elmundo.com
+    if (cookieExtensionURL.includes('elmundo.es') || cookieExtensionURL.includes('elmundo.com')) {
+        hideCookieModal('.popup-disagreed-cookies');
+    }
+
+    // Verificar para elperiodico.com, elperiodico.es o xataka.com
+    if (
+        cookieExtensionURL.includes('elperiodico.com') ||
+        cookieExtensionURL.includes('elperiodico.es') ||
+        cookieExtensionURL.includes('xataka.com')
+    ) {
+        hideCookieModal('#didomi-host');
     }
 }, 500);
+
