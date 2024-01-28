@@ -1,6 +1,6 @@
 
 console.log('Rejecting Cookies Action');
-const cookieExtensionURL = window.location.href;
+let cookieExtensionURL = window.location.href;
 
 // Función para ocultar el modal de cookies
 const hideCookieModal = (selector) => {
