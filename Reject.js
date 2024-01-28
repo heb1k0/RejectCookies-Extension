@@ -1,30 +1,30 @@
-
-console.log('Rejecting Cookies Action');
-let cookieExtensionURL = window.location.href;
-
-const hideCookieModal = (selector) => {
+function hideCookieModal(selector) {
     const modalCookies = document.querySelector(selector);
     if (modalCookies) {
         const body = document.querySelector('body');
-        body.classList.remove(...body.classList);
+        // si no tiene clases esperamos 1s
+        if (body.classList.length === 0) {
+            setTimeout(() => {
+                body.classList.remove(...body.classList);
+                modalCookies.style.display = 'none';
+            }, 1000);
+        }else{
+            body.classList.remove(...body.classList);
+        }
+        // si tiene clases las rem        body.classList.remove(...body.classList);
         modalCookies.style.display = 'none';
         console.log('Modal Cookies');
     } else {
         console.log('No hay modal de cookies');
     }
 };
-
-if (cookieExtensionURL.includes('elmundo.es') || 
-    cookieExtensionURL.includes('elmundo.com')) {
+// Si existe la clase .popup-disagreed-cookies hideCookieModal('.popup-disagreed-cookies');
+if(document.querySelector('.popup-disagreed-cookies')){
     hideCookieModal('.popup-disagreed-cookies');
 }
-if (
-    cookieExtensionURL.includes('elperiodico.com') ||
-    cookieExtensionURL.includes('elperiodico.es') ||
-    cookieExtensionURL.includes('xataka.com') ||
-    cookieExtensionURL.includes('eldiario.com') ||
-    cookieExtensionURL.includes('eldiario.es')
-) {
+
+// Si existe la clase #didomi-host hideCookieModal('#didomi-host');
+if(document.querySelector('#didomi-host')){
     hideCookieModal('#didomi-host');
 }
 
