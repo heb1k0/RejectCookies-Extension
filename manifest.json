@@ -1,27 +1,19 @@
 {
     "manifest_version": 3,
-    "name": "Reject cookies",
-    "description": "Reject cookies on elmundo.com, elperiodico.com, xataka.com and eldiario.com",
+    "name": "Disable cookies",
+    "description": "Disable cookies on elmundo.com, elperiodico.com, xataka.com and eldiario.com",
     "version": "1",
     "icons": {
       "128": "icon_128.png"
     },
     "permissions": [
-      "storage",
-      "activeTab",
-      "scripting",
-      "tabs"
+      "activeTab"
     ],
     "background": {
       "service_worker": "background.js"
     },
     "host_permissions": [
-      "https://www.elmundo.com/*",
-      "https://www.elmundo.es/*",
-      "https://www.elperiodico.com/*",
-      "https://www.elperiodico.es/*",
-      "https://www.xataka.com/*",
-      "https://www.eldiario.es/*",
-      "https://www.eldiario.com/*"
+      "https://*/*",
+      "https://*.es/*"
     ]
   }
