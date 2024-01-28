@@ -1,6 +1,6 @@
 //background.js
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (changeInfo.status === 'complete' && /^http/.test(tab.url)) {
+    if (changeInfo.status === 'loading' && /^http/.test(tab.url)) {
         chrome.scripting.executeScript({
             target: { tabId: tabId },
             files: ["./Reject.js"]
