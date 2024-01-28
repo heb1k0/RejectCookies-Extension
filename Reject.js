@@ -1,8 +1,5 @@
-//buscaGoogle.js
-//Buscamos el input text llamado q y le escribimos programador novato
 setTimeout(() => {
     console.log('Rejecting Cookies Action');
-    // // Si estamos en el mundo.es  o el mundo.com hacemos el siguiente
     let URLactual = window.location.href;
 
     if (URLactual.includes('elmundo.es') || URLactual.includes('elmundo.com')) {
