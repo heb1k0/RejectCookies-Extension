@@ -21,7 +21,9 @@ if (cookieExtensionURL.includes('elmundo.es') ||
 if (
     cookieExtensionURL.includes('elperiodico.com') ||
     cookieExtensionURL.includes('elperiodico.es') ||
-    cookieExtensionURL.includes('xataka.com')
+    cookieExtensionURL.includes('xataka.com') ||
+    cookieExtensionURL.includes('eldiario.com') ||
+    cookieExtensionURL.includes('eldiario.es')
 ) {
     hideCookieModal('#didomi-host');
 }
