@@ -1,17 +1,19 @@
 function hideCookieModal(selector) {
     const modalCookies = document.querySelector(selector);
     if (modalCookies) {
-        const body = document.querySelector('body');
+
         // si no tiene clases esperamos 1s
-        if (body.classList.length === 0) {
-            setTimeout(() => {
-                body.classList.remove(...body.classList);
-                modalCookies.style.display = 'none';
-            }, 1000);
-        } else {
+        setTimeout(() => {
+            const body = document.querySelector('body');
+            const html = document.querySelector('html');
             body.classList.remove(...body.classList);
-        }
-        body.style.overflow = 'auto';
+            html.classList.remove(...html.classList);
+            // remove class html
+            modalCookies.style.display = 'none';
+            body.style.overflow = 'auto';
+        }, 1000);
+
+
         // si tiene clases las rem        body.classList.remove(...body.classList);
         modalCookies.style.display = 'none';
         console.log('Modal Cookies');
@@ -20,21 +22,25 @@ function hideCookieModal(selector) {
     }
 };
 
+
+
 function checkofExist(selector) {
     if (document.querySelector(selector)) {
         hideCookieModal(selector);
     } else {
         setTimeout(() => {
             hideCookieModal(selector);
-        }, 200);
+        }, 800);
     }
 }
 // Si existe la clase .popup-disagreed-cookies hideCookieModal('.popup-disagreed-cookies');
 
-if (window.location.href.includes('elpais')) {
-    checkofExist("#pmConsentWall")
-}
-checkofExist('.popup-disagreed-cookies')
-checkofExist('#didomi-host')
-checkofExist('.didomi-popup')
-checkofExist('#onetrust-consent-sdk')
+// Cuando se cargue el dom ejecutamos
+    if (window.location.href.includes('elpais')) {
+        checkofExist("#pmConsentWall")
+    }
+    checkofExist('.popup-disagreed-cookies')
+    checkofExist('#didomi-host')
+    checkofExist('.didomi-popup')
+    checkofExist('#onetrust-consent-sdk')
+    checkofExist('#sp_message_container_1005436')
