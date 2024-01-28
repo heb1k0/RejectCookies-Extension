@@ -8,9 +8,10 @@ function hideCookieModal(selector) {
                 body.classList.remove(...body.classList);
                 modalCookies.style.display = 'none';
             }, 1000);
-        }else{
+        } else {
             body.classList.remove(...body.classList);
         }
+        body.style.overflow = 'auto';
         // si tiene clases las rem        body.classList.remove(...body.classList);
         modalCookies.style.display = 'none';
         console.log('Modal Cookies');
@@ -19,12 +20,26 @@ function hideCookieModal(selector) {
     }
 };
 // Si existe la clase .popup-disagreed-cookies hideCookieModal('.popup-disagreed-cookies');
-if(document.querySelector('.popup-disagreed-cookies')){
+if (document.querySelector('.popup-disagreed-cookies')) {
     hideCookieModal('.popup-disagreed-cookies');
 }
 
 // Si existe la clase #didomi-host hideCookieModal('#didomi-host');
-if(document.querySelector('#didomi-host')){
+if (document.querySelector('#didomi-host')) {
     hideCookieModal('#didomi-host');
+}
+
+if (document.querySelector('.didomi-popup')) {
+    hideCookieModal('.didomi-popup');
+}
+
+if (window.location.href.includes('elpais')) {
+    if (document.querySelector('#pmConsentWall')) {
+        hideCookieModal('.didomi-popup');
+    } else {
+        setTimeout(() => {
+            hideCookieModal('#pmConsentWall');
+        }, 100);
+    }
 }
 
