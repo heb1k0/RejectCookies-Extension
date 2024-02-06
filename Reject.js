@@ -1,3 +1,15 @@
+const MODALS_COOKIES = [
+    '#pmConsentWall',
+    '.popup-disagreed-cookies',
+    '#didomi-host',
+    '.didomi-popup',
+    '#onetrust-consent-sdk',
+    '#sp_message_container_1005436',
+    '#_an_cmp'
+];
+
+
+
 function hideCookieModal(selector) {
     const modalCookies = document.querySelector(selector);
     if (modalCookies) {
@@ -22,8 +34,6 @@ function hideCookieModal(selector) {
     }
 };
 
-
-
 function checkofExist(selector) {
     if (document.querySelector(selector)) {
         hideCookieModal(selector);
@@ -33,14 +43,12 @@ function checkofExist(selector) {
         }, 800);
     }
 }
-// Si existe la clase .popup-disagreed-cookies hideCookieModal('.popup-disagreed-cookies');
 
-// Cuando se cargue el dom ejecutamos
-    if (window.location.href.includes('elpais')) {
-        checkofExist("#pmConsentWall")
-    }
-    checkofExist('.popup-disagreed-cookies')
-    checkofExist('#didomi-host')
-    checkofExist('.didomi-popup')
-    checkofExist('#onetrust-consent-sdk')
-    checkofExist('#sp_message_container_1005436')
+
+if (window.location.href.includes('elpais')) {
+    checkofExist("#pmConsentWall")
+}
+
+MODALS_COOKIES.forEach((modal) => {
+    checkofExist(modal);
+});
