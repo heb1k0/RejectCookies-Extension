@@ -14,19 +14,15 @@ function hideCookieModal(selector) {
     const modalCookies = document.querySelector(selector);
     if (modalCookies) {
 
-        // si no tiene clases esperamos 1s
         setTimeout(() => {
             const body = document.querySelector('body');
             const html = document.querySelector('html');
             body.classList.remove(...body.classList);
             html.classList.remove(...html.classList);
-            // remove class html
             modalCookies.style.display = 'none';
             body.style.overflow = 'auto';
         }, 1000);
 
-
-        // si tiene clases las rem        body.classList.remove(...body.classList);
         modalCookies.style.display = 'none';
         console.log('Modal Cookies');
     } else {
