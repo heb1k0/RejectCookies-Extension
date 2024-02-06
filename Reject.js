@@ -13,7 +13,6 @@ const MODALS_COOKIES = [
 function hideCookieModal(selector) {
     const modalCookies = document.querySelector(selector);
     if (modalCookies) {
-
         setTimeout(() => {
             const body = document.querySelector('body');
             const html = document.querySelector('html');
@@ -24,9 +23,6 @@ function hideCookieModal(selector) {
         }, 1000);
 
         modalCookies.style.display = 'none';
-        console.log('Modal Cookies');
-    } else {
-        console.log('No hay modal de cookies');
     }
 };
 
